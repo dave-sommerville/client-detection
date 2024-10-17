@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+body {
+    background-color: #141617;
+    color: #fff;
+    font-size: 1.5rem;
+    font-family: "Poppins", "Inter", Arial sans-serif;
+}
+
+.container {
+    width: min(100% - 30px, 1200px);
+    margin-inline: auto;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-wrapper {
+    padding: 20px;
+    width: 480px;
+    height: 100svh; 
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+section{ 
+    margin: 25px; 
+    border-radius: 10px; 
+    padding: 10px; 
+    background-color: rgb(250 255 255 / 0.1);
+
+    p {
+        font-size: 2rem;
+        line-height: 3rem;
+    }
+}
+
+.title {
+    width: 100%; 
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px; 
+    background-color: rgb(250 255 255 / 0.2);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}

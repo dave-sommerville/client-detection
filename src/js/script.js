@@ -16,7 +16,7 @@ function listen(event, selector, callback) {
     DOM Selection 
 <-----------------------------------*/
 
-const opSy = select(".opSy");
+const operatingSystem = select(".opSy");
 const browser = select(".browse");
 const language = select(".lang");
 const width = select(".width");
@@ -38,52 +38,36 @@ let pageHeight = window.innerHeight;
     Search / Display Switch Cases
 <-----------------------------------*/
 
-function getOpSy() {
-    switch (true) {
-        case userAgent.includes("Windows"):
-            opSy.innerText = "Windows";
-            break;
-        case userAgent.includes("Macintosh"):
-            opSy.innerText = "Mac OS";
-            break;
-        case userAgent.includes("iPhone"):
-        case userAgent.includes("iPad"):
-        case userAgent.includes("iPod"):
-            opSy.innerText = "iOS";
-            break;
-        case userAgent.includes("Android"):
-            opSy.innerText = "Android";
-            break;
-        case userAgent.includes("Linux"):
-            opSy.innerText = "Linux";
-            break;
-        default:
-            opSy.innerText = "Your Operating System isn't recognized.";
-            break;
-    }
+function getOperatingSystem() {
+	if (userAgent.includes("Windows")) {
+		operatingSystem.innerText = "Windows";
+	} else if (userAgent.includes("Macintosh")) {
+		operatingSystem.innerText = "Mac OS";
+	} else if (userAgent.includes("iPhone") || userAgent.includes("iPad") || userAgent.includes("iPod")) {
+		operatingSystem.innerText = "iOS";
+	} else if (userAgent.includes("Android")) {
+		operatingSystem.innerText = "Android";
+	} else if (userAgent.includes("Linux")) {
+		operatingSystem.innerText = "Linux";
+	} else {
+		operatingSystem.innerText = "Your Operating System isn't recognized.";
+	}
 }
 
 function getBrowser() {
-    switch (true) {
-        case userAgent.includes("Chrome") && !userAgent.includes("Chromium"):
-            browser.innerText = "Chrome";
-            break;
-        case userAgent.includes("Firefox"):
-            browser.innerText = "Firefox"; // Fixed typo here
-            break;
-        case userAgent.includes("Edge") || userAgent.includes("edg"):
-            browser.innerText = "Edge";
-            break;
-        case userAgent.includes("Opera") || userAgent.includes("OPR"):
-            browser.innerText = "Opera";
-            break;
-        case userAgent.includes("Safari") && !userAgent.includes("Chrome"):
-            browser.innerText = "Safari";
-            break;    
-        default:
-            browser.innerText = "Your browser isn't recognized.";
-            break;
-    }
+	if (userAgent.includes("Firefox")) {
+			browser.innerText = "Firefox";
+	} else if (userAgent.includes("Edge") || userAgent.includes("edg")) {
+			browser.innerText = "Edge";
+	} else if (userAgent.includes("Chrome") && !userAgent.includes("Chromium")) {
+			browser.innerText = "Chrome";
+	} else if (userAgent.includes("Opera") || userAgent.includes("OPR")) {
+			browser.innerText = "Opera";
+	} else if (userAgent.includes("Safari") && !userAgent.includes("Chrome")) {
+			browser.innerText = "Safari";
+	} else {
+			browser.innerText = "Your browser isn't recognized.";
+	}
 }
 
 /*------------------------------------>
@@ -148,7 +132,7 @@ if ('getBattery' in navigator) {
 <-----------------------------------*/
 
 function load() {
-    getOpSy();
+    getOperatingSystem();
     getBrowser(); 
     getLanguage(); 
     getWidth();
